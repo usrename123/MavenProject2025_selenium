@@ -1,0 +1,61 @@
+String excelFilePath = "C:/Users/annur/OneDrive/Documents/DBTables.xlsx";
+        try (FileInputStream fis = new FileInputStream(excelFilePath);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0);.........................................is this an example of polymorphism ij java
+
+
+ChatGPT said:
+Yes, your example does demonstrate polymorphism in Java — specifically, runtime polymorphism (also called dynamic method dispatch).
+
+Let's break it down:
+
+📘 Code Snippet:
+
+Workbook workbook = new XSSFWorkbook(fis);
+Here:
+
+Workbook is the interface.
+
+XSSFWorkbook is the concrete implementation of that interface.
+
+workbook.getSheetAt(0) is a method call via the interface type, resolved at runtime based on the actual object (XSSFWorkbook).
+
+✅ Why is this Polymorphism?
+This line is a classic example of runtime polymorphism:
+
+You declared the object as the super type (Workbook).
+
+You instantiated it using the subclass (XSSFWorkbook).
+
+Java will decide at runtime which getSheetAt() method to call (from the actual XSSFWorkbook implementation).
+
+🧠 What kind of polymorphism is this?
+Type	Description	Your Example
+
+1.Compile-time polymorphism	Method overloading	❌ Not this one
+
+2.Runtime polymorphism	Method overriding via superclass reference	✅ Yes, this is it
+
+💡 Bonus: Why use this?
+Using the interface type (Workbook) increases flexibility and allows you to switch implementations easily, like:
+
+java
+Copy
+Edit
+Workbook workbook = new HSSFWorkbook(fis); // For .xls files
+Workbook workbook = new XSSFWorkbook(fis); // For .xlsx files
+This is useful in frameworks like Apache POI, where .xls and .xlsx use different underlying classes.
+=============================================
+ What is Dynamic Polymorphism?
+Also known as:
+
+Runtime Polymorphism
+
+Dynamic Method Dispatch
+
+It occurs when:
+
+A parent class or interface reference is used to call a method overridden by a subclass.
+
+The actual method that gets called is determined at runtime, based on the object's actual type, not the reference type.

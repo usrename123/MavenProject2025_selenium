@@ -1,0 +1,68 @@
+Polymorphism means one thing behaving in many ways.
+ Polymorphism lets you use a single interface to represent different behaviors or actions.
+ 
+🔸 Two main types:
+Compile-time polymorphism (Method Overloading)
+– Same method name, different parameters.
+
+Runtime polymorphism (Method Overriding)
+– Same method name, same parameters, but different class implementations.
+
+===========================================================================
+
+
+Compile-Time Polymorphism (Method Overloading)
+Definition: Multiple methods in the same class share the same name but differ by:
+
+Number of parameters
+
+Type of parameters
+
+Order of parameters
+
+The compiler chooses the method at compile time, based on the method signature.
+
+📘 Example:
+java
+Copy
+Edit
+public class Calculator {
+
+    // Method 1: adds two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: adds three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method 3: adds two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.add(10, 20));         // Calls method 1
+        System.out.println(calc.add(10, 20, 30));      // Calls method 2
+        System.out.println(calc.add(5.5, 6.5));        // Calls method 3
+    }
+}
+✅ Output:
+Copy
+Edit
+30
+60
+12.0
+🧠 Key Points:
+All methods are named add.
+
+The compiler selects the correct method at compile time, based on the arguments passed.
+
+No inheritance or interface is needed for overloading.
+
+Return type doesn't matter in method overloading — only method signature (name + parameters).
+
