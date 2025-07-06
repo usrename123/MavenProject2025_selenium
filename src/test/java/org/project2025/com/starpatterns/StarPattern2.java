@@ -3,7 +3,7 @@ package org.project2025.com.starpatterns;
 public class StarPattern2 {
 
 	public static void main(String[] args) {
-//         ---*
+//                 ---*
 	//	   --**
 	//	   -***
 	//	   ****
