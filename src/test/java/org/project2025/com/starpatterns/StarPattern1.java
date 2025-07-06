@@ -67,7 +67,7 @@ public class StarPattern1 {
 }
 */
 		//  *
-	   //  ***
+	   //      ***
 	//	  *****
 //		 *******
 		for (int i = 1; i <= 4; i++) {
